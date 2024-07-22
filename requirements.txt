@@ -1,0 +1,4 @@
+flask
+pandas
+py3-validate-email==1.0.4
+openpyxl
