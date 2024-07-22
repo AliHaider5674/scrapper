@@ -1,0 +1,9 @@
+version: 0.0
+resources:
+  - myLambdaFunction:
+      type: AWS::Lambda::Function
+      properties:
+        name: "my-test-lambda-function"
+        alias: "live"
+        currentversion: "1"
+        targetversion: "2"
