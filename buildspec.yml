@@ -19,12 +19,12 @@ phases:
   build:
     commands:
       - echo Build phase started...
-      - source venv/bin/activate
+      - . venv/bin/activate
       - pytest tests  # Replace with your testing or build command, if any
   post_build:
     commands:
       - echo Post-build phase started...
-      - source venv/bin/activate
+      - . venv/bin/activate
       - echo Build completed on `date`
       # Add any commands you need after the build, e.g., packaging
 
