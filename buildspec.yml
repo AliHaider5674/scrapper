@@ -4,13 +4,6 @@ phases:
   install:
     runtime-versions:
       python: 3.8  # Specify the Python version you need
-    commands:
-      # - echo Creating virtual environment...
-      # - python -m venv venv
-      # - echo Activating virtual environment...
-      # - . venv/bin/activate
-      # - echo Installing dependencies...
-      # - pip install -r requirements.txt
   pre_build:
     commands:
       - echo Pre-build phase started...

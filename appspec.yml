@@ -5,5 +5,5 @@ resources:
       properties:
         name: "my-test-lambda-function"
         alias: "lambda-alias"
-        currentversion: "1"
+        currentversion: "2"
         targetversion: "3"
