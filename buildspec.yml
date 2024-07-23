@@ -16,7 +16,13 @@ phases:
     commands:
       - echo Post-build phase started...
       - aws lambda update-function-code --function-name my-test-lambda-function --zip-file fileb://lambda.zip
-      - aws lambda publish-version --function-name my-test-lambda-function
+      - |
+        # Retry logic for publish-version command
+        for i in {1..5}; do
+          aws lambda publish-version --function-name my-test-lambda-function && break
+          echo "Retrying publish-version..."
+          sleep 10
+        done
       # Add any commands you need after the build, e.g., packaging
 
 artifacts:
