@@ -7,7 +7,6 @@ phases:
   pre_build:
     commands:
       - echo Pre-build phase started...
-      - . venv/bin/activate
       # Add any commands to run before the build, if necessary
   build:
     commands:
