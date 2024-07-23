@@ -17,11 +17,12 @@ phases:
       - echo Post-build phase started...
       - aws lambda update-function-code --function-name my-test-lambda-function --zip-file fileb://lambda.zip
       - |
-        # Retry logic for publish-version command
-        for i in {1..5}; do
+        # Extended retry logic for publish-version command
+        for i in {1..10}; do
+          echo "Attempt $i: Publishing new version of Lambda function"
           aws lambda publish-version --function-name my-test-lambda-function && break
-          echo "Retrying publish-version..."
-          sleep 10
+          echo "Publish-version attempt $i failed due to ResourceConflictException. Retrying in 30 seconds..."
+          sleep 30
         done
       # Add any commands you need after the build, e.g., packaging
 
