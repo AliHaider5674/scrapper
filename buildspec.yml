@@ -18,9 +18,11 @@ phases:
       - aws lambda update-function-code --function-name my-test-lambda-function --zip-file fileb://lambda.zip
       - |
         # Extended retry logic for publish-version command
-        for i in {1..10}; do
+        for i in $(seq 1 10); do
           echo "Attempt $i: Publishing new version of Lambda function"
-          aws lambda publish-version --function-name my-test-lambda-function && break
+          if aws lambda publish-version --function-name my-test-lambda-function; then
+            break
+          fi
           echo "Publish-version attempt $i failed due to ResourceConflictException. Retrying in 30 seconds..."
           sleep 30
         done
