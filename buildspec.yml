@@ -23,8 +23,8 @@ phases:
   post_build:
     commands:
       - echo Post-build phase started...
-      - . venv/bin/activate
-      - echo Build completed on `date`
+      - aws lambda update-function-code --function-name my-test-lambda-function --zip-file fileb://lambda.zip
+      - aws lambda publish-version --function-name my-test-lambda-function
       # Add any commands you need after the build, e.g., packaging
 
 artifacts:
