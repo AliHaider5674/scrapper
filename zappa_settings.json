@@ -4,7 +4,7 @@
         "aws_region": "us-east-1", 
         "s3_bucket": "dopcy-codebuild-artifact",  
         "memory_size": 512,
-        "timeout_seconds": 10,
+        "timeout_seconds": 100,
         "keep_warm": false,
         "manage_roles": false,
         "role_name": "my-test-lambda-function"  
